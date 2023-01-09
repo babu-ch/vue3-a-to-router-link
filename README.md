@@ -1,3 +1,65 @@
+# Vue3 AToRouterLink
+
+replace the link in v-html with router.push
+
+# Usage
+
+```html
+# simple
+<AToRouterLink :html="html" />
+```
+
+## Props
+
+```
+{
+  // v-html value
+  html: String,
+  // tag. default is div
+  tag: {
+    type: String,
+    required: false,
+    default: "div",
+  },
+  // Callback called before navigating with router.push
+  // move only if true
+  beforeMoveInternalCallBack: {
+    type: Function,
+    required: false,
+  },
+  // Callback invoked before navigating outside
+  // move only if true
+  beforeMoveExternalCallBack: {
+    type: Function,
+    required: false,
+  },
+}
+```
+
+## emit
+
+```
+{
+  // Always emit when navigating to a link
+  (e: "afterMove", href: String): void
+  // Always emit when navigating to an internal link
+  (e: "afterMoveInternal", href: String): void
+  // Always emit when navigating to an external link
+  (e: "afterMoveExternal", href: String): void
+}
+```
+
+# develop
+
+```
+pnpm install
+
+pnpm dev
+
+pnpm build
+```
+
+
 # Vue 3 + TypeScript + Vite
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
