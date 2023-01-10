@@ -13,7 +13,7 @@
   />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import AToRouterLink from "./components/AToRouterLink.vue"
 const html = `<p><a href="/a">to page a(relative)</a></p>` +
     `<p><a href="${window.location.origin}/a">to page a(full)</a></p>`+
@@ -21,12 +21,12 @@ const html = `<p><a href="/a">to page a(relative)</a></p>` +
 
 const cbHtml = `<p><a href="/">to Home</a></p>` +
                 `<p><a href="https://google.com/">to google</a></p>`
-const beforeMoveInternal = () => {
-  return confirm("move?")
+const beforeMoveInternal = (href: String) => {
+  return confirm(`move to ${href}?`)
 }
-const beforeMoveExternal = async () => {
+const beforeMoveExternal = async (href: String) => {
   await new Promise(resolve => setTimeout(resolve, 1000))
-  return confirm("(async) move?")
+  return confirm(`(async) move to ${href}?`)
 }
 const afterMoveExternal = (href) => {console.log("afterMoveExternal", href)}
 const afterMoveInternal = (href) => {console.log("afterMoveInternal", href)}

@@ -37,11 +37,11 @@ const { beforeMoveInternalCallBack, beforeMoveExternalCallBack } = toRefs(props)
 
 const router = useRouter()
 
-const callCb = async (cb: Ref<Function|undefined>|undefined) => {
+const callCb = async (cb: Ref<Function|undefined>|undefined, href: string) => {
   if (!cb?.value) {
     return true
   }
-  return await cb?.value()
+  return await cb?.value(href)
 }
 
 const onClick = async (event: Event) => {
@@ -55,13 +55,13 @@ const onClick = async (event: Event) => {
   const origin = window.location.origin
 
   if (href.startsWith(origin)) {
-    if (!( await callCb(beforeMoveInternalCallBack))) {
+    if (!( await callCb(beforeMoveInternalCallBack, href))) {
       return
     }
     await router.push(href.replace(origin, ""))
     emits("afterMoveInternal", href)
   } else {
-    if (!( await callCb(beforeMoveExternalCallBack))) {
+    if (!( await callCb(beforeMoveExternalCallBack, href))) {
       return
     }
     window.open(href)
