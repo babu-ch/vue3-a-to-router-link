@@ -12,7 +12,7 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "allowJs": true,
-    "declarationDir": "./dist/dts",
+    "declarationDir": "./dist/",
     "emitDeclarationOnly": true,
     "declaration": true,
     "declarationMap": true,
