@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "type": "module",
   "main": "dist/v3-a-to-router-link.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/babu-ch/vue3-a-to-router-link"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
