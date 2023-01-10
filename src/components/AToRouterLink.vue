@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useRouter} from "vue-router";
-import {Ref, toRefs, defineProps, defineEmits} from "vue";
+import {Ref, toRefs} from "vue";
 
 const emits = defineEmits<{
   // Always emit when navigating to a link
