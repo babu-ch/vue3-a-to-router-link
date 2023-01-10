@@ -42,4 +42,3 @@ declare const _default: import("vue").DefineComponent<{
     tag: string;
 }>;
 export default _default;
-//# sourceMappingURL=AToRouterLink.vue.d.ts.map
