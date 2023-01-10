@@ -8,7 +8,8 @@
     "type": "git",
     "url": "https://github.com/babu-ch/vue3-a-to-router-link"
   },
-  "files": ["dist"],
+  "files": ["dist", "type/components/AToRouterLink.vue.d.ts"],
+  "types": "type/components/AToRouterLink.vue.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",

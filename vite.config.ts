@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     lib: {
       // 複数のエントリーポイントのディクショナリや配列にもできます
-      entry: resolve(__dirname, 'src/entry.ts'),
+      entry: resolve(__dirname, 'src/components/AToRouterLink.vue'),
       name: 'v3AToRouterLink',
       // 適切な拡張子が追加されます
       fileName: 'v3-a-to-router-link',
