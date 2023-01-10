@@ -1,5 +1,9 @@
 declare const _default: import("vue").DefineComponent<{
-    html: StringConstructor;
+    html: {
+        type: StringConstructor;
+        required: false;
+        default: string;
+    };
     tag: {
         type: StringConstructor;
         required: false;
@@ -20,7 +24,11 @@ declare const _default: import("vue").DefineComponent<{
 } & {
     afterMoveExternal: (href: String) => void;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    html: StringConstructor;
+    html: {
+        type: StringConstructor;
+        required: false;
+        default: string;
+    };
     tag: {
         type: StringConstructor;
         required: false;
@@ -39,6 +47,7 @@ declare const _default: import("vue").DefineComponent<{
     onAfterMoveInternal?: ((href: String) => any) | undefined;
     onAfterMoveExternal?: ((href: String) => any) | undefined;
 }, {
+    html: string;
     tag: string;
 }>;
 export default _default;

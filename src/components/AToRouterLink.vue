@@ -13,7 +13,11 @@ const emits = defineEmits<{
 
 const props = defineProps({
   // v-html value
-  html: String,
+  html: {
+    type: String,
+    required: false,
+    default: "",
+  },
   // tag. default is div
   tag: {
     type: String,
