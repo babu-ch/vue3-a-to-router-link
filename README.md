@@ -11,8 +11,8 @@ replace the link in v-html with router.push
 
 ## Props
 
-```
-{
+```js
+const props = defineProps({
   // v-html value
   html: String,
   // tag. default is div
@@ -33,20 +33,20 @@ replace the link in v-html with router.push
     type: Function,
     required: false,
   },
-}
+})
 ```
 
 ## emit
 
-```
-{
+```ts
+const emits = defineEmits<{
   // Always emit when navigating to a link
   (e: "afterMove", href: String): void
   // Always emit when navigating to an internal link
   (e: "afterMoveInternal", href: String): void
   // Always emit when navigating to an external link
   (e: "afterMoveExternal", href: String): void
-}
+}>()
 ```
 
 # develop

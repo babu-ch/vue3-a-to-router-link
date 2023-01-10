@@ -28,9 +28,9 @@ const beforeMoveExternal = async (href: String) => {
   await new Promise(resolve => setTimeout(resolve, 1000))
   return confirm(`(async) move to ${href}?`)
 }
-const afterMoveExternal = (href) => {console.log("afterMoveExternal", href)}
-const afterMoveInternal = (href) => {console.log("afterMoveInternal", href)}
-const afterMove = (href) => {console.log("afterMove", href)}
+const afterMoveExternal = (href: String) => {console.log("afterMoveExternal", href)}
+const afterMoveInternal = (href: String) => {console.log("afterMoveInternal", href)}
+const afterMove = (href: String) => {console.log("afterMove", href)}
 </script>
 
 <style scoped></style>
