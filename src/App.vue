@@ -11,6 +11,12 @@
     @afterMoveInternal="afterMoveInternal"
     @afterMove="afterMove"
   />
+  <h3>check blank</h3>
+  <AToRouterLink
+      :html="blankHtml"
+      :check-blank-external-link="true"
+      :check-blank-internal-link="true"
+  />
 </template>
 
 <script setup lang="ts">
@@ -31,6 +37,10 @@ const beforeMoveExternal = async (href: String) => {
 const afterMoveExternal = (href: String) => {console.log("afterMoveExternal", href)}
 const afterMoveInternal = (href: String) => {console.log("afterMoveInternal", href)}
 const afterMove = (href: String) => {console.log("afterMove", href)}
+
+const blankHtml = `<p><a href="/b" target="_blank">to page b(blank)</a></p>` +
+    `<p><a href="https://google.com">to google(same tab)</a></p>` +
+    `<p><a href="https://google.com" target="_blank">to google(blank)</a></p>`
 </script>
 
 <style scoped></style>

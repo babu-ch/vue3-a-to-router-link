@@ -36,8 +36,20 @@ const props = defineProps({
     type: Function,
     required: false,
   },
+  // check target=_blank internal link
+  checkBlankInternalLink: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+  // check target=_blank external link
+  checkBlankExternalLink: {
+    type: Boolean,
+    required: false,
+    default: false,
+  }
 })
-const { beforeMoveInternalCallBack, beforeMoveExternalCallBack } = toRefs(props)
+const { beforeMoveInternalCallBack, beforeMoveExternalCallBack, checkBlankExternalLink, checkBlankInternalLink } = toRefs(props)
 
 const router = useRouter()
 
@@ -57,18 +69,28 @@ const onClick = async (event: Event) => {
 
   const href = target.href
   const origin = window.location.origin
+  const isBlank = target.target === "_blank"
 
   if (href.startsWith(origin)) {
     if (!( await callCb(beforeMoveInternalCallBack, href))) {
       return
     }
-    await router.push(href.replace(origin, ""))
+    if (checkBlankInternalLink?.value && isBlank) {
+      window.open(href, "_blank")
+    } else {
+      await router.push(href.replace(origin, ""))
+    }
     emits("afterMoveInternal", href)
   } else {
     if (!( await callCb(beforeMoveExternalCallBack, href))) {
       return
     }
-    window.open(href)
+    if (checkBlankExternalLink?.value) {
+      window.open(href, isBlank ? "_blank" : "_self")
+    } else {
+      // default is blank
+      window.open(href, "_blank")
+    }
     emits("afterMoveExternal", href)
   }
   emits("afterMove", href)

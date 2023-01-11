@@ -13,26 +13,42 @@ replace the link in v-html with router.push
 
 ```js
 const props = defineProps({
-  // v-html value
-  html: String,
-  // tag. default is div
-  tag: {
-    type: String,
-    required: false,
-    default: "div",
-  },
-  // Callback called before navigating with router.push
-  // move only if true
-  beforeMoveInternalCallBack: {
-    type: Function,
-    required: false,
-  },
-  // Callback invoked before navigating outside
-  // move only if true
-  beforeMoveExternalCallBack: {
-    type: Function,
-    required: false,
-  },
+   // v-html value
+   html: {
+      type: String,
+      required: false,
+      default: "",
+   },
+   // tag. default is div
+   tag: {
+      type: String,
+      required: false,
+      default: "div",
+   },
+   // Callback called before navigating with router.push
+   // move only if true
+   beforeMoveInternalCallBack: {
+      type: Function,
+      required: false,
+   },
+   // Callback invoked before navigating outside
+   // move only if true
+   beforeMoveExternalCallBack: {
+      type: Function,
+      required: false,
+   },
+   // check target=_blank internal link
+   checkBlankInternalLink: {
+      type: Boolean,
+      required: false,
+      default: false,
+   },
+   // check target=_blank external link
+   checkBlankExternalLink: {
+      type: Boolean,
+      required: false,
+      default: false,
+   }
 })
 ```
 
