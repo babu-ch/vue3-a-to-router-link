@@ -1,4 +1,4 @@
-# Vue3 AToRouterLink
+# Vue3 v-html link handler
 
 replace the link in v-html with router.push
 
@@ -6,7 +6,7 @@ replace the link in v-html with router.push
 
 ```html
 # simple
-<AToRouterLink :html="html" />
+<VHtmlLinkHandler :html="html"/>
 ```
 
 ## Props

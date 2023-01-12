@@ -1,15 +1,15 @@
 {
-  "name": "vue3-a-to-router-link",
+  "name": "vue3-v-html-link-handler",
   "private": false,
   "version": "0.1.0",
   "type": "module",
-  "main": "dist/v3-a-to-router-link.js",
+  "main": "dist/v3-v-html-link-handler.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/babu-ch/vue3-a-to-router-link"
   },
-  "files": ["dist", "type/components/AToRouterLink.vue.d.ts"],
-  "types": "type/components/AToRouterLink.vue.d.ts",
+  "files": ["dist", "type/components/VHtmlLinkHandler.vue.d.ts"],
+  "types": "type/components/VHtmlLinkHandler.vue.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
