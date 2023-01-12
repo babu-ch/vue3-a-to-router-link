@@ -6,7 +6,7 @@
   "main": "dist/v3-v-html-link-handler.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/babu-ch/vue3-a-to-router-link"
+    "url": "https://github.com/babu-ch/vue3-v-html-link-handler"
   },
   "files": ["dist", "type/components/VHtmlLinkHandler.vue.d.ts"],
   "types": "type/components/VHtmlLinkHandler.vue.d.ts",

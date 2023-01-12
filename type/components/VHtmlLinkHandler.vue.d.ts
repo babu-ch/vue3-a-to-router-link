@@ -17,6 +17,16 @@ declare const _default: import("vue").DefineComponent<{
         type: FunctionConstructor;
         required: false;
     };
+    checkBlankInternalLink: {
+        type: BooleanConstructor;
+        required: false;
+        default: boolean;
+    };
+    checkBlankExternalLink: {
+        type: BooleanConstructor;
+        required: false;
+        default: boolean;
+    };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     afterMove: (href: String) => void;
 } & {
@@ -42,6 +52,16 @@ declare const _default: import("vue").DefineComponent<{
         type: FunctionConstructor;
         required: false;
     };
+    checkBlankInternalLink: {
+        type: BooleanConstructor;
+        required: false;
+        default: boolean;
+    };
+    checkBlankExternalLink: {
+        type: BooleanConstructor;
+        required: false;
+        default: boolean;
+    };
 }>> & {
     onAfterMove?: ((href: String) => any) | undefined;
     onAfterMoveInternal?: ((href: String) => any) | undefined;
@@ -49,5 +69,7 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     html: string;
     tag: string;
+    checkBlankInternalLink: boolean;
+    checkBlankExternalLink: boolean;
 }>;
 export default _default;
