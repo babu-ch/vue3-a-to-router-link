@@ -5,7 +5,9 @@ replace the link in v-html with router.push
 # Usage
 
 ```html
-# simple
+const html = "<p><a href="/relative">relative</a></p>" +  # router.push
+             "<p><a href="https://example.com">relative</a></p>" # open new tab
+
 <VHtmlLinkHandler :html="html"/>
 ```
 
