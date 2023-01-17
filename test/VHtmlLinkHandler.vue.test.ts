@@ -99,9 +99,13 @@ describe("VHtmlLinkHandler", () => {
         })
     })
     describe("check blank", () => {
-        test("internal check blank", async () => {
+        test("internal check blank(tag is not _blank) -> router-push", async () => {
         })
-        test("external check blank", async () => {
+        test("internal check blank(tag is _blank) -> window.open", async () => {
+        })
+        test("external check blank(tag is not _blank) -> window.open(_self)", async () => {
+        })
+        test("external check blank(tag is _blank) -> window.open(_blank)", async () => {
         })
     })
 })
