@@ -33,6 +33,9 @@ describe("VHtmlLinkHandler", () => {
 
             await component.get("a").trigger("click")
             expect(mockedPush).toBeCalledWith("/relative")
+
+            expect(component.emitted("afterMoveInternal"))
+            expect(component.emitted("afterMove"))
         })
         test("internal link -> router-push", async () => {
             const html = `<p><a href="${window.location.origin}/relative">full path</a></p>`
@@ -40,12 +43,19 @@ describe("VHtmlLinkHandler", () => {
 
             await component.get("a").trigger("click")
             expect(mockedPush).toBeCalledWith("/relative")
+
+            expect(component.emitted("afterMoveInternal"))
+            expect(component.emitted("afterMove"))
         })
         test("external link -> window open(blank)", async () => {
             const component = getComponent({html: externalHtml})
 
             await component.get("a").trigger("click")
             expect(mockedWindowOpen).toBeCalledWith(externalLink, "_blank")
+
+
+            expect(component.emitted("afterMoveExternal"))
+            expect(component.emitted("afterMove"))
         })
     })
     describe("callback", () => {
