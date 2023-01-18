@@ -22,6 +22,8 @@ const relativeHtml = '<p><a href="/relative">relative</a></p>'
 const externalLink = "https://example.com/hello"
 const externalHtml = `<p><a href="${externalLink}">external</a></p>`
 
+const origin = window.origin
+
 describe("VHtmlLinkHandler", () => {
     afterEach(() => {
         vi.restoreAllMocks()
@@ -33,8 +35,8 @@ describe("VHtmlLinkHandler", () => {
             await component.get("a").trigger("click")
             expect(mockedPush).toBeCalledWith("/relative")
 
-            expect(component.emitted("afterMoveInternal"))
-            expect(component.emitted("afterMove"))
+            expect(component.emitted("afterMoveInternal")[0]).toStrictEqual([`${origin}/relative`])
+            expect(component.emitted("afterMove")[0]).toStrictEqual([`${origin}/relative`])
         })
         test("internal link -> router-push", async () => {
             const html = `<p><a href="${window.location.origin}/relative">full path</a></p>`
@@ -43,8 +45,8 @@ describe("VHtmlLinkHandler", () => {
             await component.get("a").trigger("click")
             expect(mockedPush).toBeCalledWith("/relative")
 
-            expect(component.emitted("afterMoveInternal"))
-            expect(component.emitted("afterMove"))
+            expect(component.emitted("afterMoveInternal")[0]).toStrictEqual([`${origin}/relative`])
+            expect(component.emitted("afterMove")[0]).toStrictEqual([`${origin}/relative`])
         })
         test("external link -> window open(blank)", async () => {
             const component = getComponent({html: externalHtml})
@@ -52,8 +54,8 @@ describe("VHtmlLinkHandler", () => {
             await component.get("a").trigger("click")
             expect(mockedWindowOpen).toBeCalledWith(externalLink, "_blank")
 
-            expect(component.emitted("afterMoveExternal"))
-            expect(component.emitted("afterMove"))
+            expect(component.emitted("afterMoveExternal")[0]).toStrictEqual([externalLink])
+            expect(component.emitted("afterMove")[0]).toStrictEqual([externalLink])
         })
     })
     describe("callback", () => {
