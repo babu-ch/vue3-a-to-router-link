@@ -22,7 +22,6 @@ const relativeHtml = '<p><a href="/relative">relative</a></p>'
 const externalLink = "https://example.com/hello"
 const externalHtml = `<p><a href="${externalLink}">external</a></p>`
 
-// TODO emit
 describe("VHtmlLinkHandler", () => {
     afterEach(() => {
         vi.restoreAllMocks()
@@ -52,7 +51,6 @@ describe("VHtmlLinkHandler", () => {
 
             await component.get("a").trigger("click")
             expect(mockedWindowOpen).toBeCalledWith(externalLink, "_blank")
-
 
             expect(component.emitted("afterMoveExternal"))
             expect(component.emitted("afterMove"))
@@ -110,12 +108,28 @@ describe("VHtmlLinkHandler", () => {
     })
     describe("check blank", () => {
         test("internal check blank(tag is not _blank) -> router-push", async () => {
+            const component = getComponent({html: relativeHtml, checkBlankInternalLink: true})
+
+            await component.get("a").trigger("click")
+            expect(mockedPush).toBeCalled()
         })
         test("internal check blank(tag is _blank) -> window.open", async () => {
+            const component = getComponent({html: "<a href='/relative' target='_blank'>relative</a>", checkBlankInternalLink: true})
+
+            await component.get("a").trigger("click")
+            expect(mockedWindowOpen).toBeCalled()
         })
         test("external check blank(tag is not _blank) -> window.open(_self)", async () => {
+            const component = getComponent({html: externalHtml, checkBlankExternalLink: true})
+
+            await component.get("a").trigger("click")
+            expect(mockedWindowOpen).toBeCalledWith(externalLink, "_self")
         })
         test("external check blank(tag is _blank) -> window.open(_blank)", async () => {
+            const component = getComponent({html: `<a href="${externalLink}" target="_blank">external</a>`, checkBlankExternalLink: true})
+
+            await component.get("a").trigger("click")
+            expect(mockedWindowOpen).toBeCalledWith(externalLink, "_blank")
         })
     })
 })
