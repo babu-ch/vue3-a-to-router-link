@@ -2,6 +2,8 @@
 
 replace the link in v-html with router.push
 
+https://www.npmjs.com/package/vue3-v-html-link-handler
+
 # Usage
 
 ```html
