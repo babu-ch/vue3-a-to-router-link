@@ -6,6 +6,8 @@ https://www.npmjs.com/package/vue3-v-html-link-handler
 
 # Usage
 
+`npm i vue3-v-html-link-handler`
+
 ```html
 const html = "<p><a href="/relative">relative</a></p>" +  # router.push
              "<p><a href="https://example.com">relative</a></p>" # open new tab
